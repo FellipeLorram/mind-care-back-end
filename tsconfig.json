@@ -8,6 +8,7 @@
     "emitDecoratorMetadata": true,
     "module": "commonjs",
     "rootDir": "./src",
+    "baseUrl": ".",
     "typeRoots": [
       "./node_modules/@types",
       "./src/@types"
@@ -19,5 +20,8 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true
-  }
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
 }
