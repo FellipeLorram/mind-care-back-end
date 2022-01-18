@@ -1,5 +1,9 @@
 import express from 'express';
 import helmet from 'helmet';
+import {
+  homeRoutes,
+  userRoutes,
+} from './Routes/_Index';
 
 class App {
   app: any;
@@ -17,8 +21,9 @@ class App {
   }
 
   routes() {
-    this.app.use('/');
+    this.app.use('/', homeRoutes);
+    this.app.use('/', userRoutes);
   }
 }
 
-export default new App();
+export default new App().app;

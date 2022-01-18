@@ -1,2 +1,2 @@
-export { default as HomeRoutes } from './homeRoutes';
-export { default as UserRoutes } from './UserRoutes';
+export { default as homeRoutes } from './homeRoutes';
+export { default as userRoutes } from './UserRoutes';
