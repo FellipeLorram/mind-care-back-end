@@ -15,9 +15,9 @@ export class CreateUserController {
       });
 
       return res.status(201).send();
-    } catch (e) {
+    } catch (error) {
       return res.status(400).json({
-        message: e.message || 'Unexpected error.'
+        message: error.message || 'Unexpected error.'
       })
     }
 
