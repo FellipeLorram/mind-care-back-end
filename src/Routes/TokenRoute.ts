@@ -1,4 +1,4 @@
-import { generateTokenController } from '@UseCases/GenerateToken/Index';
+import { generateTokenController } from '../UseCases/GenerateToken/Index';
 import { Router, Request, Response } from 'express';
 
 const router = Router();

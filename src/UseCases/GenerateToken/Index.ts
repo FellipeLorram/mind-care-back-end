@@ -1,5 +1,5 @@
-import { JWTTokenProvider } from "@Providers/Implementations/JWTTokenProvider";
-import { MongoUsersRepository } from "@Repositories/Implementations/MongoUsersRepository";
+import { JWTTokenProvider } from '../../Providers/Implementations/JWTTokenProvider';
+import { MongoUsersRepository } from "../../Repositories/Implementations/MongoUsersRepository";
 import { GenerateTokenController } from "./GenerateTokenController";
 import { GenerateTokenUseCase } from "./GenerateTokenUseCase";
 

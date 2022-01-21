@@ -1,4 +1,4 @@
-import { createUserController } from '@UseCases/CreateUser/Index';
+import { createUserController } from '../UseCases/CreateUser/Index';
 import { Router, Request, Response } from 'express';
 
 const router = Router();

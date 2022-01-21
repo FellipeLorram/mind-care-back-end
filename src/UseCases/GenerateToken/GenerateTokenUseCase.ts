@@ -1,5 +1,5 @@
-import { ITokenProvider } from "@Providers/ITokenProvider";
-import { IUsersRepository } from "@Repositories/IUserRepository";
+import { ITokenProvider } from "../../Providers/ITokenProvider";
+import { IUsersRepository } from "../../Repositories/IUserRepository";
 import { IGenerateTokenRequestDTO } from "./GenerateTokenDTO";
 
 export class GenerateTokenUseCase {
