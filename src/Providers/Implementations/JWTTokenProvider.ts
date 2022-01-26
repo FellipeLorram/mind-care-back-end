@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { ICredentials, ITokenProvider } from "@Providers/ITokenProvider";
+import { ICredentials, ITokenProvider } from '@Providers/ITokenProvider';
 
 export class JWTTokenProvider implements ITokenProvider {
   async generate(credentials: ICredentials): Promise<string> {

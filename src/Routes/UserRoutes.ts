@@ -1,10 +1,9 @@
-import { createUserController } from '../UseCases/CreateUser/Index';
 import { Router, Request, Response } from 'express';
+
+import { createUserController } from '../UseCases/CreateUser/Index';
 
 const router = Router();
 
-router.post('/new-user', (req: Request, res: Response) => {
-  return createUserController.handle(req, res);
-});
+router.post('/new-user', (req: Request, res: Response) => createUserController.handle(req, res));
 
 export default router;

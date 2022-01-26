@@ -2,6 +2,7 @@ import express from 'express';
 import helmet from 'helmet';
 import {
   homeRoutes,
+  patientRoutes,
   tokenRoutes,
   userRoutes,
 } from './Routes/_Index';
@@ -25,6 +26,7 @@ class App {
     this.app.use('/', homeRoutes);
     this.app.use('/', userRoutes);
     this.app.use('/', tokenRoutes);
+    this.app.use('/', patientRoutes);
   }
 }
 
