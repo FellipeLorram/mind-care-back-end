@@ -1,10 +1,10 @@
 import { Router, Request, Response } from 'express';
 
-import { createUserController } from '@UseCases/CreateUser/Index';
-import { loginRequired } from 'src/Middlewares/LoginRequired';
+import { createPatientController } from '@UseCases/CreatePatient/Index';
+import { loginRequired } from '../Middlewares/LoginRequired';
 
 const router = Router();
 
-router.post('/new-patient', loginRequired, (req: Request, res: Response) => res.send('teste'));
+router.post('/new-patient', loginRequired, (req: Request, res: Response) => createPatientController.handle(req, res));
 
 export default router;

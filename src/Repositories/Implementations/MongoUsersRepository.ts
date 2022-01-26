@@ -1,5 +1,5 @@
-import { User } from "../../Entities/User";
-import { IUsersRepository } from "../IUserRepository";
+import { User } from '../../Entities/User';
+import { IUsersRepository } from '../IUserRepository';
 import { UserModel } from '../../Schema/UserSchema';
 
 export class MongoUsersRepository implements IUsersRepository {
@@ -10,7 +10,6 @@ export class MongoUsersRepository implements IUsersRepository {
   }
 
   async save(user: User): Promise<void> {
-    await UserModel.create(user)
-  };
+    await UserModel.create(user);
+  }
 }
-

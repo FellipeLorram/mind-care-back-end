@@ -1,26 +1,28 @@
-import { ITokenProvider } from "../../Providers/ITokenProvider";
-import { IUsersRepository } from "../../Repositories/IUserRepository";
-import { IGenerateTokenRequestDTO } from "./GenerateTokenDTO";
+import { ITokenProvider } from '../../Providers/ITokenProvider';
+import { IUsersRepository } from '../../Repositories/IUserRepository';
+import { IGenerateTokenRequestDTO } from './GenerateTokenDTO';
 
 export class GenerateTokenUseCase {
   constructor(
     private usersRepository: IUsersRepository,
     private tokenProvider: ITokenProvider,
 
+  // eslint-disable-next-line no-empty-function
   ) { }
+
   async execute(data: IGenerateTokenRequestDTO): Promise<string> {
-    const { email, password } = data
+    const { email, password } = data;
 
     const user = await this.usersRepository.findByEmail(email);
 
     if (!user) throw new Error('Non-existent user.');
 
-    if (user.password !== password) throw new Error('Invalid credentials.')
+    if (user.password !== password) throw new Error('Invalid credentials.');
 
-    const { id } = user
+    const { id } = user;
 
-    const token = this.tokenProvider.generate({ email, password, id })
+    const token = this.tokenProvider.generate({ email, password, id });
 
     return token;
   }
-};
+}

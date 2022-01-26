@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const NotesSchemma = new mongoose.Schema({
   title: { type: String, required: false, default: '' },
@@ -8,6 +8,8 @@ const NotesSchemma = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
   appointment_ref: { type: String, required: false, default: '' },
   id: { type: String, required: true },
-})
+  patient_link: { type: String, required: true },
+});
 
-export { NotesSchemma }
+const NotesModel = mongoose.model('Notes', NotesSchemma);
+export { NotesModel };

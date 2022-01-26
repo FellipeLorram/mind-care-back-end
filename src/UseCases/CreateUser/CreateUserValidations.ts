@@ -10,6 +10,5 @@ export class CreateUserValidations {
     if (password.length < 8 || password.length > 55) throw new Error('Invalid password. Password have to be at least 8 characters and less than 55 characters.');
 
     if (name.length < 8 || name.length > 55) throw new Error('Invalid name. Name have to be at least 8 characters and less than 55 characters.');
-
   }
 }

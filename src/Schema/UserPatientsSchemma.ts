@@ -1,8 +1,4 @@
-import mongoose from "mongoose";
-
-import { ActivitiesSchemma } from './PatientActivitiesSchemma'
-import { AppointmentSchemma } from "./PatientAppointmentSchemma";
-import { NotesSchemma } from './PatientNotesSchemma';
+import mongoose from 'mongoose';
 
 const PatientSchemma = new mongoose.Schema({
   name: { type: String, required: true },
@@ -21,9 +17,8 @@ const PatientSchemma = new mongoose.Schema({
   observation: { type: String, required: false, default: '' },
   appointment_time: { type: String, required: false, default: '' },
   id: { type: String, required: true },
-  notes: [NotesSchemma],
-  activities: [ActivitiesSchemma],
-  appointments: [AppointmentSchemma],
-})
+  user_link: { type: String, required: true },
+});
 
-export { PatientSchemma }
+const PatientModel = mongoose.model('Patients', PatientSchemma);
+export { PatientModel };

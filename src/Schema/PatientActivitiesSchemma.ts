@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const ActivitiesSchemma = new mongoose.Schema({
   title: { type: String, required: false, default: '' },
@@ -9,6 +9,8 @@ const ActivitiesSchemma = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
   appointment_ref: { type: String, required: false, default: '' },
   id: { type: String, required: true },
-})
+  patient_link: { type: String, required: true },
+});
 
-export { ActivitiesSchemma }
+const ActivitiesModel = mongoose.model('Activities', ActivitiesSchemma);
+export { ActivitiesModel };
