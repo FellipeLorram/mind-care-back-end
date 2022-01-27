@@ -1,6 +1,6 @@
 import { Patient } from '@Entities/Patient';
 
-class CreatePatientValidations {
+class PatientValidations {
   private readonly availableGenders: string[];
 
   constructor() {
@@ -16,4 +16,4 @@ class CreatePatientValidations {
   }
 }
 
-export { CreatePatientValidations };
+export { PatientValidations };

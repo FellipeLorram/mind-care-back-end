@@ -1,9 +1,9 @@
-import { MongoPatientRepository } from '../../Repositories/Implementations/MongoPatientRepository';
+import { MongoPatientRepository } from '../../../Repositories/Implementations/MongoPatientRepository';
 import { CreatePatientController } from './CreatePatientController';
 import { CreatePatientUseCase } from './CreatePatientUseCase';
-import { CreatePatientValidations } from './CreatePatientValidations';
+import { PatientValidations } from '../PatientValidations/PatientValidations';
 
-const patientValidations = new CreatePatientValidations();
+const patientValidations = new PatientValidations();
 const patientRepository = new MongoPatientRepository();
 const createPatientUseCase = new CreatePatientUseCase(patientRepository, patientValidations);
 

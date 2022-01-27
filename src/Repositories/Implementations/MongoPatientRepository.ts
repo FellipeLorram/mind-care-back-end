@@ -12,4 +12,15 @@ export class MongoPatientRepository implements IPatientRepository {
     const newPatient = await PatientModel.create(patient);
     return newPatient;
   }
+
+  async edit(userId: string, patientId: string, patient: Patient): Promise<Patient> {
+    const editedPatient = await PatientModel
+      .findOneAndUpdate({ id: patientId, user_link: userId }, patient);
+
+    return editedPatient;
+  }
+
+  async delete(userId: string, patientId): Promise<void> {
+    await PatientModel.findOneAndDelete({ id: patientId, user_link: userId });
+  }
 }

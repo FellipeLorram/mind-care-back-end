@@ -1,4 +1,4 @@
-export interface ICreatePatientRequestDTO {
+export interface IPatientRequestDTO {
   name: string;
   adress?: string;
   birth_date?: Date;
