@@ -21,6 +21,8 @@ class EditPatientUseCase {
 
     const newPatient = await this.patientRepository.edit(userId, patientId, patient);
 
+    if (!newPatient) throw new Error('There is no Patient with the id provided.');
+
     return newPatient;
   }
 }
