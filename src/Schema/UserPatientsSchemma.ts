@@ -20,5 +20,6 @@ const PatientSchemma = new mongoose.Schema({
   user_link: { type: String, required: true },
 });
 
+const PatientModelTrash = mongoose.model('PatientsTrash', PatientSchemma);
 const PatientModel = mongoose.model('Patients', PatientSchemma);
-export { PatientModel };
+export { PatientModel, PatientModelTrash };

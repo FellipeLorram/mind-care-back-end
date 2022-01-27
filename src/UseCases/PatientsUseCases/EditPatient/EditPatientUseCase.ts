@@ -15,6 +15,8 @@ class EditPatientUseCase {
     userId: string,
     patientId: string,
   ): Promise<Patient> {
+    if (!patientId) throw new Error('No id provided.');
+
     const patient = new Patient(data, userId, patientId);
 
     this.patientValidations.execute(patient);

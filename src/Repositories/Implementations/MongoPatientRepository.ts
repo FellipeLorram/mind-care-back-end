@@ -1,6 +1,6 @@
 import { Patient } from '@Entities/Patient';
 import { IPatientRepository } from '@Repositories/IPatientRepository';
-import { PatientModel } from '../../Schema/UserPatientsSchemma';
+import { PatientModel, PatientModelTrash } from '../../Schema/UserPatientsSchemma';
 
 export class MongoPatientRepository implements IPatientRepository {
   async findById(userId: string, id: string): Promise<Patient> {
@@ -22,5 +22,9 @@ export class MongoPatientRepository implements IPatientRepository {
 
   async delete(userId: string, patientId): Promise<void> {
     await PatientModel.findOneAndDelete({ id: patientId, user_link: userId });
+  }
+
+  async move(patient: Patient): Promise<void> {
+    await PatientModelTrash.create(patient);
   }
 }

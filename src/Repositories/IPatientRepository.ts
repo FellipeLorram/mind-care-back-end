@@ -5,4 +5,5 @@ export interface IPatientRepository {
   save(patient: Patient): Promise<Patient>;
   edit(userId: string, patientId: string, patient: Patient): Promise<Patient>;
   delete(userId: string, patientId: string): Promise<void>;
+  move(patient: Patient): Promise<void>;
 }
