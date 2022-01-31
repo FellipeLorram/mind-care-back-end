@@ -2,6 +2,10 @@ import { Patient } from '@Entities/Patient';
 import { IPatientRepository } from '@Repositories/IPatientRepository';
 import { PatientModel, PatientModelTrash } from '../../Schema/UserPatientsSchemma';
 
+interface PatientWithUndescoredId extends Patient {
+  _doc: object;
+}
+
 export class MongoPatientRepository implements IPatientRepository {
   async findById(userId: string, id: string): Promise<Patient> {
     const patient = await PatientModel.findOne({ id, user_link: userId });
@@ -24,7 +28,8 @@ export class MongoPatientRepository implements IPatientRepository {
     await PatientModel.findOneAndDelete({ id: patientId, user_link: userId });
   }
 
-  async move(patient: Patient): Promise<void> {
-    await PatientModelTrash.create(patient);
+  async move(patient: PatientWithUndescoredId): Promise<void> {
+    // eslint-disable-next-line no-underscore-dangle
+    await PatientModelTrash.create(patient._doc);
   }
 }

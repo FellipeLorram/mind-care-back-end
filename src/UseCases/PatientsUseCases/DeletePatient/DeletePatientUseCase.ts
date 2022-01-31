@@ -1,3 +1,4 @@
+import { Patient } from '@Entities/Patient';
 import { IPatientRepository } from '@Repositories/IPatientRepository';
 
 export class DeletePatientUseCase {
@@ -11,7 +12,10 @@ export class DeletePatientUseCase {
 
     if (!patient) throw new Error('Patient not find. Please consider changing the submitted id.');
 
-    await this.patientRepository.move(patient);
+    const trashedPatient = new Patient(patient, userId);
+    // console.log(trashedPatient);
+
+    await this.patientRepository.move(trashedPatient);
     await this.patientRepository.delete(userId, patientId);
   }
 }

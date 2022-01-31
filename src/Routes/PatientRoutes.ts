@@ -10,5 +10,6 @@ const router = Router();
 router.post('/new-patient', loginRequired, (req: Request, res: Response) => createPatientController.handle(req, res));
 router.put('/edit-patient/:id', loginRequired, (req: Request, res: Response) => editPatientController.handle(req, res));
 router.delete('/delete-patient/:id', loginRequired, (req: Request, res: Response) => deletePatientController.handle(req, res));
+router.delete('/undo-delete-patient/:id', loginRequired, (req: Request, res: Response) => deletePatientController.handle(req, res));
 
 export default router;
